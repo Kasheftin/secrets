@@ -5,6 +5,7 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 
 cd "$SCRIPTPATH/backend"
 npm install
+npm run migrate -- --env production
 npm run build
 pm2 stop secrets-backend
 pm2 delete secrets-backend
