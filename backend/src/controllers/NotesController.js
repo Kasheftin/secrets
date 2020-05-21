@@ -1,8 +1,8 @@
 import moment from 'moment'
 import pick from 'lodash/pick'
 import { SodiumPlus, CryptographyKey } from 'sodium-plus'
-import { catchError, sendSuccess, throwError, throwIf } from '~/utils/requestHelpers'
-import models from '~/models'
+import { catchError, sendSuccess, throwError, throwIf } from '../utils/requestHelpers'
+import models from '../models'
 
 export default class NotesController {
   static async createNote (req, res) {

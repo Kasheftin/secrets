@@ -1,8 +1,7 @@
-import 'module-alias/register'
 import bodyParser from 'body-parser'
 import express from 'express'
-import '~/utils/dotenv'
-import routes from '~/routes'
+import './utils/dotenv'
+import routes from './routes'
 
 const app = express()
 

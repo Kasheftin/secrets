@@ -1,6 +1,6 @@
 import isObject from 'lodash/isObject'
 import pick from 'lodash/pick'
-import logger from '~/utils/logger'
+import logger from './logger'
 
 export const errorTypes = {
   validation: { status: 400, statusMessage: 'Validation Error', isCriticalError: false },
