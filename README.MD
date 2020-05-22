@@ -12,3 +12,6 @@ frontend:
 
 tests:
 cd backend && npm run test
+
+The link to the (probably) live demo:
+http://secrets.rag.lt/ or https://secrets.rag.lt/
