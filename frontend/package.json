@@ -1,0 +1,34 @@
+{
+  "name": "secrets-frontend",
+  "version": "1.0.0",
+  "description": "My world-class Nuxt.js project",
+  "author": "Kasheftin",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "deep-freeze": "0.0.1",
+    "fs": "0.0.1-security",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.15",
+    "nuxt": "^2.0.0",
+    "qs": "^6.9.4",
+    "sodium-javascript": "^0.5.6"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/vuetify": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-nuxt": ">=0.4.2"
+  }
+}
