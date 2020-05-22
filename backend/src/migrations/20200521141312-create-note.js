@@ -23,6 +23,10 @@ module.exports = {
           type: Sequelize.INTEGER,
           defaultValue: -1
         },
+        isEncryptedOnTheClient: {
+          type: Sequelize.BOOLEAN,
+          defaultValue: 0
+        },
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE

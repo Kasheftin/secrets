@@ -22,12 +22,20 @@ export default class NotesController {
       const encrypted = await sodium.crypto_secretbox(req.body.content, nonce, key)
         .catch(throwError({ type: 'sodium', message: 'Error encrypting content.' }))
 
+      let expiresAt = null
+      if (req.body.expiresAt && moment(req.body.expiresAt).isValid()) {
+        expiresAt = req.body.expiresAt
+      } else if (req.body.ttl) {
+        expiresAt = moment().add(req.body.ttl, 'seconds').format()
+      }
+
       const note = await models.Note
         .build({
           hash: hash.toString('hex'),
           encryptedContent: nonce.toString('hex') + encrypted.toString('hex'),
-          expiresAt: req.body.expiresAt,
-          remainingViews: req.body.remainingViews || -1
+          expiresAt,
+          remainingViews: req.body.remainingViews || -1,
+          isEncryptedOnTheClient: req.body.isEncryptedOnTheClient ? 1 : 0
         })
         .save()
         .catch(throwError('db'))
@@ -83,7 +91,7 @@ export default class NotesController {
         .catch(throwError({ type: 'sodium', message: 'Error decrypting content.' }))
 
       sendSuccess(res)({
-        ...pick(note, 'hash', 'remainingViews', 'expiresAt', 'createdAt'),
+        ...pick(note, 'hash', 'remainingViews', 'expiresAt', 'createdAt', 'isEncryptedOnTheClient'),
         content: decrypted.toString('utf-8')
       })
     } catch (error) {

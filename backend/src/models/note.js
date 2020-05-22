@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     remainingViews: {
       type: DataTypes.INTEGER,
       defaultValue: -1
+    },
+    isEncryptedOnTheClient: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: 0
     }
   }, {
     indexes: [
